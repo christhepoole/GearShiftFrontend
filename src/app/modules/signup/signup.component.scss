@@ -1,0 +1,56 @@
+.outer {
+    height: 100vh;
+    background: linear-gradient(to top, #FFFFFF 10%, #7D3C98 90%) no-repeat;
+}
+
+.panel-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#login {
+    min-width: 100px;
+    margin-left: auto;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.form-inline label {
+    padding-left: auto;
+    margin: 0;
+}
+
+.btn {
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.panel {
+    min-height: 380px;
+    box-shadow: 20px 20px 80px rgb(218, 218, 218);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+.input-field.error {
+    border: 1px solid #fc0303;
+}
+
+input[type='text'],
+input[type='password'] {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
