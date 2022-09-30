@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.loginForm.value).subscribe({
         next: (res) => {
           alert(res.isAuthSuccessful);
+          localStorage.setItem('token', res.token);
+          this.auth.sendAuthChangeNotification(res.isAuthSuccessful);
           this.loginForm.reset();
           this.router.navigate(['home']);
         },
