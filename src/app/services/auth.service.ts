@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private baseURL: string = "https://localhost:7225/api/Login/";
-  private authChangeSubject = new Subject<boolean>();
-  public authChanged = this.authChangeSubject.asObservable();
 
   constructor(
     private http : HttpClient,
@@ -22,7 +20,11 @@ export class AuthService {
     return this.http.post<any>(`${this.baseURL}login`, loginObj);
   }
 
-  public sendAuthChangeNotification(isAuthenticated: boolean) {
-    this.authChangeSubject.next(isAuthenticated);
+  public logout() {
+    localStorage.removeItem('token');
+  }
+
+  public getUserProfile(id: number) {
+    return this.http.get<UserModel>(`${this.baseURL}user/${id}`);
   }
 }
