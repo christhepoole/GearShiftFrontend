@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthResponseModel } from 'src/app/models/authresponse.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -36,19 +38,17 @@ export class LoginComponent implements OnInit {
   public onLogin() {
     if(this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe({
-        next: (res) => {
-          alert(res.isAuthSuccessful);
+        next: (res: AuthResponseModel) => {
           localStorage.setItem('token', res.token);
-          this.auth.sendAuthChangeNotification(res.isAuthSuccessful);
           this.loginForm.reset();
           this.router.navigate(['home']);
         },
-        error: (err) => {
-          alert(err.ErrorMessage);
+        error: (err: HttpErrorResponse) => {
+          alert(err.message);
         }
       })
     } else {
-
+      alert("Username or password incorrect");
     }
   }
 }
