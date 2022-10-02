@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  public textType: string = "password";
+  public showPass: boolean = false;
   public registerForm!: FormGroup;
 
   constructor(
@@ -32,12 +33,16 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  public onSignup() {
+  public hideShowPassword() {
+    this.showPass = !this.showPass;
+    this.showPass ? document.getElementById('eyeicon')!.innerText = "visibility" : document.getElementById('eyeicon')!.innerText = "visibility_off";
+    this.showPass ? this.textType = "text" : this.textType = "password";
+  }
 
+  public onSignup() {
     if(this.registerForm.valid) {
       this.auth.signUp(this.registerForm.value).subscribe({
         next: (res) => {
-          alert(res.message);
           this.registerForm.reset();
           this.router.navigate(['login']);
         },
