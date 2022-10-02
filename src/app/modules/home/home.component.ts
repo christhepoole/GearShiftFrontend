@@ -24,10 +24,11 @@ export class HomeComponent implements OnInit {
   }
 
   public authenticateUser() {
-    if(!localStorage.getItem('token')) {
+    let token = localStorage.getItem('token');
+
+    if(!token || this.jwtHelper.isTokenExpired(token)) {
       this.router.navigate(['login']);
     } else {
-      let token = localStorage.getItem('token') || '{}';
       let decodedToken = this.jwtHelper.decodeToken(token);
       
       this.auth.getUserProfile(decodedToken.Id).subscribe({

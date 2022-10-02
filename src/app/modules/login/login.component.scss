@@ -12,6 +12,7 @@
     min-width: 100px;
     margin-left: auto;
     text-decoration: none;
+    color: #000000;
 }
 
 a:hover {
@@ -26,6 +27,12 @@ a:hover {
 .btn {
     margin-top: 20px;
     border-radius: 15px;
+    background-color: #5e2e72;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0!important;
+    box-shadow: none!important;
 }
 
 .panel {
