@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         next: (res: AuthResponseModel) => {
           localStorage.setItem('token', res.token);
           this.loginForm.reset();
-          this.router.navigate(['home']);
+          this.router.navigate(['home/rentals']);
         },
         error: (err: HttpErrorResponse) => {
           alert(err.message);

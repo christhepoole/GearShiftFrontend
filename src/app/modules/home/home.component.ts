@@ -10,8 +10,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public user = new UserModel;
   private jwtHelper = new JwtHelperService();
+  public user = new UserModel;
   
   constructor(
     private auth: AuthService,
@@ -33,8 +33,9 @@ export class HomeComponent implements OnInit {
       
       this.auth.getUserProfile(decodedToken.Id).subscribe({
         next: (res) => {
-          this.user = res;
-          console.log(this.user);
+          this.auth.user = res;
+          this.user = this.auth.user;
+          console.log(this.auth.user);
         }
       })
     }
