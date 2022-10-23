@@ -7,6 +7,7 @@ import { UserModel } from '../models/user.model';
 })
 export class AuthService {
   private baseURL: string = "https://localhost:7225/api/Login/";
+  public user = new UserModel;
 
   constructor(
     private http : HttpClient,

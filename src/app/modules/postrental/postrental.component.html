@@ -1,0 +1,34 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="panel-heading">
+                <h3 class="pt-3 font-weight-bold">Post Gear for Rent</h3>
+            </div>
+            <div class="panel-body p-3">
+                <form [formGroup]="createRentalForm">
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <input type="text" formControlName="rentalName" placeholder="Rental name">
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <input type="text" formControlName="rentalType" placeholder="Type of rental">
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <input type="text" formControlName="rentalCost" placeholder="Price per day">
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <input type="text" formControlName="maxRentalPeriod" placeholder="Max rental period (in days)">
+                        </div>
+                    </div>
+                    <button [disabled]="createRentalForm.invalid" type="submit" (click)="postRental()" class="btn btn-primary btn-block mt-4 w-100">Post Rental</button>
+                </form>    
+            </div>
+        </div>
+    </div>
+</div>
