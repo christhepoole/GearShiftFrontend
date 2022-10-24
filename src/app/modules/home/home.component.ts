@@ -20,7 +20,17 @@ export class HomeComponent implements OnInit {
   { }
 
   ngOnInit(): void {
+    this.getAllUsers();
     this.authenticateUser();
+  }
+
+  public getAllUsers() {
+    this.auth.getAllUsers().subscribe({
+      next: res => {
+        this.auth.users = res;
+        console.log(this.auth.users);
+      }
+    })
   }
 
   public authenticateUser() {

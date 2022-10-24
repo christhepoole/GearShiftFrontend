@@ -3,3 +3,40 @@
     border-radius: 15px;
     background-color: #5e2e72;
 }
+
+.outer {
+    height: 100vh;
+    background: linear-gradient(to top, #FFFFFF 10%, #000000 90%) no-repeat;
+}
+
+.container-fluid {
+    padding-top: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.panel {
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 14px 23px #5e2e72;
+    border-radius: 20px;
+}
