@@ -8,6 +8,7 @@ import { UserModel } from '../models/user.model';
 export class AuthService {
   private baseURL: string = "https://localhost:7225/api/Login/";
   public user = new UserModel;
+  public users: UserModel[] = [];
 
   constructor(
     private http : HttpClient,
@@ -27,5 +28,9 @@ export class AuthService {
 
   public getUserProfile(id: number) {
     return this.http.get<UserModel>(`${this.baseURL}user/${id}`);
+  }
+
+  public getAllUsers() {
+    return this.http.get<any>(`${this.baseURL}users`);
   }
 }

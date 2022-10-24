@@ -1,1 +1,22 @@
-<p>rentals works!</p>
+<div class="outer">
+    <div class="container-fluid">
+        <div class="d-flex">
+            <div>
+                <h3>Available Rentals</h3>
+            </div>
+        </div>
+        <div class="mt-5 d-flex">
+            <div class="mt-2 p-4" *ngFor="let rental of rentalsList">
+                <div class="card" *ngIf="this.auth.user.id != rental.renterId">
+                    <div class="mt-2 p-4 flex">
+                        <p class="pl-4">{{rental.rentalName}}</p>
+                        <p class="pl-4">{{rental.rentalType}}</p>
+                        <p class="pl-4">Price: ${{rental.rentalCost | number: '1.2-2'}} per day</p>
+                        <p class="pl-4">Renter: {{rental.renterName}}</p>
+                        <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Rent this listing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
